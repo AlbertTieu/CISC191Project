@@ -34,9 +34,14 @@ public class Encounter
 	
 	//methods
 	
-	public String getString() 
+	public String getChoice() 
 	{
 		return choice;
+	}
+	
+	public void setChoice(String theChoice)
+	{
+		choice = theChoice;
 	}
 	
 }

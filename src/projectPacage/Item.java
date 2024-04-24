@@ -1,4 +1,5 @@
 package projectPacage;
+import java.util.ArrayList;
 /**
  * Lead Author(s):
  * @author Albert Tieu
@@ -20,27 +21,25 @@ package projectPacage;
  */
 public class Item
 {
-	//fields
-	// An item has-a Type
-	String type;
-	// An item has-a Power
-	String power;
-	
+	// fields ///
+
+	// An Item has-a type
+	Item type;
+
 	//constructors
 	// creates a new item which has a type and a power
 
-	public Item()
+	public Item(Item rip)
 	{
-		type = "";
-		power = "";
+		int placeholder;
+		int placeholder2;
 	}
-	
 
 	//methods
 	/**
 	* retrieves the type of the item
 	**/
-	public String getItemType()
+	public Item getItemType()
 	{
 		return type;
 	}
@@ -48,7 +47,7 @@ public class Item
 	/**
 	*	* retrieves the power of the item
 	**/
-	public String getItemPower()
+	public String getItemStats()
 	{
 		return power;
 	}
@@ -62,7 +61,10 @@ public class Item
 		return type;
 	}
 
-	public String setItemPower(String newPower)
+	/**
+	*Method in case you want to change the stats of the item  (do we need this?)
+	*/
+	public String setItemStats (String newPower)
 	{
 		power = newPower;
 		return power;

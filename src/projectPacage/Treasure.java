@@ -36,11 +36,14 @@ public class Treasure extends Encounter
 	
 	//methods 
 	
+	//this method should generate an item not keep track of it
 	/**
-    * method to keep track of the item gained?
+    // Method to generate an item object from Item class
+    // can call an Item cosntructor with parameters that define its type and other stuff
     */
     public Item generateItem()
     {
+    	
         return item;
     }
 	

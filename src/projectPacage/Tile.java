@@ -22,20 +22,83 @@ package projectPacage;
 public class Tile
 {
 	//fields
-
+	
+	Encounter encounter;
 	Player player;
 	boolean explored;
-	boolean playerd;
+	boolean playered;
+	int ENCOUNTER_CHANCE = 10;
 	
 	//constructors
 	
 	public Tile() 
 	{
+		explored = false;
+		playered = false;
 		
+		//tiles have a chance to have an encounter
+		if ((int) (Math.random() * ENCOUNTER_CHANCE) == 0)
+		{
+			encounter = new Encounter();
+		} else 
+		{
+			encounter = null;
+		}
 	}
 	
 	//methods
 	
+	public boolean getExploredStatus()
+	{
+		return explored;
+	}
 	
+	public boolean getPlayeredStatus()
+	{
+		return playered;
+	}
+	
+	public Encounter getEncounter()
+	{
+		return encounter;
+	}
+	
+	//setters mutators whatever
+	
+	public void setEncounter(String encounterName)
+	{
+		encounter = new Encounter();
+	}
+	
+	/**
+	 * Changes the status of whether or not the tile has been "explored"
+	 */
+	public void changeExploredStatus()
+	{
+		explored = !explored;
+	}
+	
+	/**
+	 * Changed the status of whether or not the player is in the tile
+	 */
+	public void changePlayeredStatus()
+	{
+		playered = !playered;
+	}
+	
+	/**
+	 * toString describing the tile
+	 */
+	@Override
+	public String toString()
+	{
+		if (this.getEncounter() != null)
+		{
+			return "E";
+		} else
+		{
+			return "";
+		}
+	}
 	
 }
