@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class Consumable {
 
     // Fields
-
+	// testing
 	// A Consumable has an atk stat;
      int atkStat;
     // A Consumable has a hp stat;
