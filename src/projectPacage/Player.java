@@ -91,9 +91,20 @@ public class Player
 	
 	//other
 	
-	public void addInventory(Item newItem) 
+	public void addEquipment(Equipment equipment) 
 	{
-		inventory.add(newItem);
+		inventory.add(equipment);
+	}
+	
+	public void addConsumable (Consumable consumable) 
+	{
+		inventory.add(consumable);
+	
+	}
+	
+	public void addBuffObject(BuffObject buffObject) 
+	{
+		inventory.add(buffObject);
 	}
 	
 }
