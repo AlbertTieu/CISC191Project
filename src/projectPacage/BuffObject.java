@@ -18,7 +18,8 @@ package projectPacage;
  * Equipment is a type of Item.
  * This class is designed to be an object that will aid the player
  */
-public class BuffObject
+// A BuffObject is a Item
+public class BuffObject extends Item
 {
 	 
 	// A BuffObject has-an atk stat;
@@ -67,7 +68,9 @@ public class BuffObject
     	if(buffObject.getDuration()>0)
     	{
     		setBuffApplied(player, buffObject, true);
-    		buffObject.getDuration()--;
+    		// create an instance variable to refer to the SPECIFICALLY the buff Object's duration
+    		int buffObjectDuration = buffObject.getDuration();
+    		buffObjectDuration--;
     	}
     	else if(buffObject.getDuration() == 0)
     	{
@@ -83,6 +86,7 @@ public class BuffObject
     	// set the player HP and Atk before the loop so that the buffs will only be applied once
     	player.setHp(buffObject.getHpStat() + player.getHp());
         player.setAtk(buffObject.getAtkStat() + player.getAtk());
+        
     	if(applied == true)
     	{
     		
@@ -93,46 +97,14 @@ public class BuffObject
             player.setAtk(player.getAtk()- buffObject.getAtkStat());
     	}
     }
+    
     /**
-     * Method to allow the user to get the atk stat of a consumable 
+     * Method to allow the user to get the duration of a item 
      **/
-     public int getAtkStat()
+     public int getDuration()
      {
-         return atkStat;
+         return duration;
      }
- 	/** 
- 	* retrieves the type of the consumable
- 	**/
- 	public int getHpStat()
- 	{
- 		return hpStat;
- 	}
-
- 	/** 
- 	* retrieves the duration of an object
- 	**/
- 	public int getDuration()
- 	{
- 		return duration;
- 	}
-
- 	
- 	/**
- 	*	* retrieves the power of the consumable
- 	**/
- 	public int setAtkStat(int newAtk)
- 	{
-         atkStat = newAtk;
- 		return atkStat;
- 	}
- 	
- 	/**
- 	*	* sets the power of the consumable
- 	**/
- 	public int setHPStat(int newHP)
- 	{
- 		hpStat = newHP;
- 		return hpStat;
- 	}
+     
 }
 

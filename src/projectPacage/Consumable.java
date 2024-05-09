@@ -20,7 +20,9 @@ import java.util.ArrayList;
  * This class is designed to be an object that the player can
  * equip to grant some benefit.
  */
-public class Consumable {
+//A Consumable is a Item
+public class Consumable extends Item
+{
 	// A Consumable will either, decrease the atk of enemies, decrease the health of enemies, or both
 	    // Fields
 
@@ -43,10 +45,6 @@ public class Consumable {
 		{
 	    	this.atkStat = atkStat;
 	    	this.hpStat = hpStat;
-			// adds consumable stats to an array list
-			ArrayList<Integer> consumableStats = new ArrayList<Integer>();
-			consumableStats.add(atkStat);
-			consumableStats.add(hpStat);
 	    }
 
 	    // Methods
@@ -60,36 +58,4 @@ public class Consumable {
 
 	    }
 
-	    /**
-	    * Method to allow the user to get the atk stat of a consumable 
-	    **/
-	    public int getAtkStat()
-	    {
-	        return atkStat;
-	    }
-		/** 
-		* retrieves the type of the consumable
-		**/
-		public int getHpStat()
-		{
-			return hpStat;
-		}
-
-		/**
-		*	* retrieves the power of the consumable
-		**/
-		public int setAtkStat(int newAtk)
-		{
-	        atkStat = newAtk;
-			return atkStat;
-		}
-		
-		/**
-		*	* sets the power of the consumable
-		**/
-		public int setHPStat(int newHP)
-		{
-			hpStat = newHP;
-			return hpStat;
-		}
-}
+	}

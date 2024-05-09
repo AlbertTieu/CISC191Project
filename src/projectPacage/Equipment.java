@@ -20,7 +20,8 @@ import java.util.ArrayList;
  * This class is designed to be an object that the player can
  * equip to grant some benefit.
  */
-public class Equipment 
+//Equipment is a Item
+public class Equipment extends Item
 {
 	// Fields
 	// An equipment has an atk stat;
@@ -37,10 +38,8 @@ public class Equipment
     // Constructor to Instantiate an equipment object
 	public Equipment(int atkStat, int hpStat) // other parameters from the equipment class)
 	{
-		// An Item has stats
-		ArrayList<Integer> equipmentStats = new ArrayList<Integer>();
-		equipmentStats.add(atkStat);
-		equipmentStats.add(hpStat);
+		atkStat = 0;
+	    hpStat = 0;
 	}
     // Methods
 
@@ -57,7 +56,7 @@ public class Equipment
         // and then use methods to do the above ^^
         // adds equipment to player's inventory
         // add the hp stat of the equipment to the player's hp
-        player.setHp(newEquipment.getHPStat() + player.getHp());
+        player.setHp(newEquipment.getHpStat() + player.getHp());
         // add the atk stat of the equipment to the player's atk
         player.setAtk(newEquipment.getAtkStat() + player.getAtk());
     }
@@ -65,41 +64,9 @@ public class Equipment
     public void Dequip(Player player, Equipment equipment)
     {
         // remove the hp stat of the equipment from the player's hp
-        player.setHp(player.getHp() - equipment.getHPStat());
+        player.setHp(player.getHp() - equipment.getHpStat());
         // remove the atk stat of the equipment from the player's atk
         player.setAtk(player.getAtk() - equipment.getAtkStat());
     }
 
-    /**
-    * Method to allow the user to get the atk stat of an equipment 
-    **/
-    public int getAtkStat()
-    {
-        return atkStat;
-    }
-	/** 
-	* retrieves the type of the item
-	**/
-	public int getHPStat()
-	{
-		return hpStat;
-	}
-
-	/**
-	*	* retrieves the power of the item
-	**/
-	public int setAtkStat(int newAtk)
-	{
-        atkStat = newAtk;
-		return atkStat;
-	}
-	
-	/**
-	*	* sets the power of the item
-	**/
-	public int setHPStat(int newHP)
-	{
-		hpStat = newHP;
-		return hpStat;
-	}
 }

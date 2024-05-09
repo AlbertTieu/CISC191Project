@@ -1,5 +1,7 @@
 package projectPacage;
 
+import java.util.ArrayList;
+
 /**
  * Lead Author(s):
  * @author Albert Tieu
@@ -22,36 +24,35 @@ package projectPacage;
 public class Treasure extends Encounter
 {
 	//fields
-	// A Treasure has-a item 
-    Item item;
+	// A treasure has-a list of treasures
+	// Created an ArrayList for the treasure object
+	// so that we can store new items in there
+	ArrayList<Item> listOfTreasures = new ArrayList<>();
 	
 	//constructors
     
     // a treasure object should have an item in it
 	public Treasure()
     {
-        // create a new item object
-        item = new Item();
     }
 	
 	//methods 
-	
-	//this method should generate an item not keep track of it
 	/**
-    // Method to generate an item object from Item class
-    // can call an Item cosntructor with parameters that define its type and other stuff
-    */
-    public Item generateItem()
-    {
-    	
-        return item;
-    }
+	 * Method to add an Item to a treasure chest
+	 */
+	public void addToTreasure(Item newItem)
+	{
+		// treasure adds the desired item into the list
+		listOfTreasures.add(newItem);
+	}
 	
     /**
     * method to give the player the item in the treasure chest
     */
-    public void givePlayer()
+    public void givePlayer(Player player)
     {
-        
+    	// trying to take the passed player and add the items from the 
+    	// list of treasures to their inventory as a parameter 
+        player.addToInventory(listOfTreasures);
     }
 }

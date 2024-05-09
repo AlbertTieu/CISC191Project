@@ -22,53 +22,55 @@ import java.util.ArrayList;
 public class Item
 {
 	// fields ///
-
-	// An Item has-a type
-	Item type;
+	// An Item has an atk stat;
+    int atkStat;
+   // An Item has a hp stat;
+    int hpStat;
 
 	//constructors
 	// creates a new item which has a type and a power
 
-	public Item(Item rip)
+	public Item()
 	{
-		int placeholder;
-		int placeholder2;
+		atkStat = 0;
+		hpStat = 0;
 	}
+
 
 	//methods
 	/**
-	* retrieves the type of the item
-	**/
-	public Item getItemType()
-	{
-		return type;
-	}
+     * Method to allow the user to get the atk stat of a item 
+     **/
+     public int getAtkStat()
+     {
+         return atkStat;
+     }
+ 	/** 
+ 	* retrieves the type of the item
+ 	**/
+ 	public int getHpStat()
+ 	{
+ 		return hpStat;
+ 	}
 
-	/**
-	*	* retrieves the power of the item
-	**/
-	public String getItemStats()
-	{
-		return power;
-	}
-	
-	/**
-	*	* sets the power of the item
-	**/
-	public String setItemType(String newType)
-	{
-		type = newType;
-		return type;
-	}
-
-	/**
-	*Method in case you want to change the stats of the item  (do we need this?)
-	*/
-	public String setItemStats (String newPower)
-	{
-		power = newPower;
-		return power;
-	}
-	
-	
+ 	
+ 	/**
+ 	*	* retrieves the power of the item
+ 	**/
+ 	public int setAtkStat(int newAtk)
+ 	{
+         atkStat = newAtk;
+ 		return atkStat;
+ 	}
+ 	
+ 	/**
+ 	*	* sets the power of the item
+ 	**/
+ 	public int setHPStat(int newHP)
+ 	{
+ 		hpStat = newHP;
+ 		return hpStat;
+ 	}
+ 	
+ 	 
 }
