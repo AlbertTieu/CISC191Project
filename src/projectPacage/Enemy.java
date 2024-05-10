@@ -1,5 +1,11 @@
 package projectPacage;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 /**
  * Lead Author(s):
  * @author Albert Tieu
@@ -24,13 +30,15 @@ public class Enemy
 
 	int hp;
 	int atk;
+	private BufferedImage enemyImage;
 	
 	//constructors
 	
-	public Enemy() 
+	public Enemy() throws IOException 
 	{
 		hp = 0;
 		atk = 0;
+		enemyImage = null;
 	}
 	
 	public Enemy(int newHp, int newAtk) 
@@ -81,6 +89,11 @@ public class Enemy
 	public int getAtk() 
 	{
 		return atk;
+	}
+	
+	public BufferedImage getEnemyImage()
+	{
+		return enemyImage;
 	}
 		
 	//other

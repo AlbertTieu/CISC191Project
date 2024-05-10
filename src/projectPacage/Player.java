@@ -28,6 +28,10 @@ public class Player
 	int hp;
 	//A Player has-a attack power
 	int atk;
+	//A Player has-a Weapon
+	Weapon weapon;
+	//A Player has-a Armor
+	Armor armor;
 	//A Player has-a inventory
 	ArrayList<Item> inventory; 
 	
@@ -37,6 +41,8 @@ public class Player
 	{
 		hp = 10;
 		atk = 10;
+		weapon = new Weapon();
+		armor = new Armor();
 	}
 
 	public Player(Player newPlayer)
@@ -55,15 +61,15 @@ public class Player
 	 */
 	public void setHp(int newHp) 
 	{
-		hp = newHp;
+		hp = newHp + armor.getHpStat();
 	}
 	
 	/*
-	 * setter for the Player's atk value
+	 * setter for t he Player's atk value
 	 */
 	public void setAtk(int newAtk) 
 	{
-		atk = newAtk;
+		atk = newAtk + weapon.getHpStat();
 	}
 	
 	//getters
@@ -96,5 +102,14 @@ public class Player
 		inventory.add(item);
 	}
 	
-	
+	public void equipWeapon(Weapon newWeapon)
+    {   
+		addToInventory(weapon);
+		weapon = newWeapon;
+    }
+	public void equipArmor(Armor newArmor)
+	{
+		addToInventory(armor);
+		armor = newArmor;
+	}
 }

@@ -21,8 +21,9 @@ package projectPacage;
 public class Combat
 {
 	//fields
-
+	// Combat has-a player
 	Player player;
+	// Combat has-a enemy
 	Enemy enemy;
 	
 	//constructors
@@ -32,13 +33,25 @@ public class Combat
 		
 	}
 	
+	public Combat(Player thePlayer, Enemy theEnemy)
+	{
+		player = thePlayer;
+		enemy = theEnemy;
+	}
+	
+	public Combat(Combat newCombat)
+	{
+		player = newCombat.getPlayer();
+		enemy = newCombat.getEnemy();
+	}
+	
 	//methods
 	
 	//getters
 	
 	public Player getPlayer()
 	{
-		return player;		
+		return player;
 	}
 	
 	public Enemy getEnemy()
@@ -60,10 +73,6 @@ public class Combat
 	
 	//other
 	
-	public void attack() 
-	{
-		
-	}
 	
 	public void skills() 
 	{
@@ -80,9 +89,24 @@ public class Combat
 		
 	}
 	
-	public void enemy()
+	/**
+	 * method for when enemy is attacked
+	 */
+	public int attackEnemy()
 	{
-		
+		int damageDealt = player.getAtk();
+		enemy.setHp(enemy.getHp() - damageDealt);
+		return damageDealt;
+	}
+
+	/**
+	 * method for when player is attacked
+	 */
+	public int attackPlayer() 
+	{
+		int damageDealt = enemy.getAtk();
+		player.setHp(player.getHp() - damageDealt);
+		return damageDealt;
 	}
 	
 }

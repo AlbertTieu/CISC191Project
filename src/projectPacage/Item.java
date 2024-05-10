@@ -26,6 +26,10 @@ public class Item
     int atkStat;
    // An Item has a hp stat;
     int hpStat;
+	// An Item has a name;
+    String name;
+   // An Item has a description;
+    String description;
 
 	//constructors
 	// creates a new item which has a type and a power
@@ -34,6 +38,8 @@ public class Item
 	{
 		atkStat = 0;
 		hpStat = 0;
+		name = null;
+		description = null;
 	}
 
 
@@ -53,23 +59,53 @@ public class Item
  		return hpStat;
  	}
 
+	/**
+	* Method to get the name of an item
+	*/
+	public String getName()
+	{
+		return name;
+	}
+
+	/**
+	* Method to get the description of an item
+	*/
+	public String getDescription()
+	{
+		return description;
+	}
+
  	
  	/**
  	*	* retrieves the power of the item
  	**/
- 	public int setAtkStat(int newAtk)
+ 	public void setAtkStat(int newAtk)
  	{
          atkStat = newAtk;
- 		return atkStat;
  	}
  	
  	/**
  	*	* sets the power of the item
  	**/
- 	public int setHPStat(int newHP)
+ 	public void setHPStat(int newHP)
  	{
- 		hpStat = newHP;
- 		return hpStat;
+ 		hpStat = newHP; 
+		}
+
+	/**
+ 	*	Method to set the name of the item
+ 	**/
+ 	public void setName(String newName)
+ 	{
+        name = newName;
+ 	}
+ 	
+ 	/**
+ 	*	Method to set the description of the item
+ 	**/
+ 	public void setDescription(String newDescription)
+ 	{
+        description = newDescription;
  	}
  	
  	 

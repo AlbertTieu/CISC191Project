@@ -1,9 +1,17 @@
 package packageGUI;
 
-import projectPacage.*;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+import javax.swing.*;
+
+import projectPacage.*;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /**
  * Lead Author(s):
@@ -41,35 +49,76 @@ public class CombatGUI extends JFrame
 				
 		};
 	
+	private BufferedImage myPicture;
+	
 	private JButton[] menuButtons = new JButton[menuButtonNames.length];
 	
+	private JLabel enemyHpLabel;
+	private JLabel playerHpLabel;
+	private JLabel picLabel;
+	
 	private JPanel actionPanel;
+	private JPanel statusPanel;
+	private JPanel leftPanel;
+	private JPanel rightPanel;
+	
 
+	private JTextPane combatLog;
+	
+	private JScrollPane logScroll;
 	
 	//constructors
 	
 	/**
 	 * Constructor for the MenuGUI
+	 * @throws IOException 
 	 */
-	public CombatGUI(Player p, Enemy e)
+	public CombatGUI(Player p, Enemy e) throws IOException
 	{
 		player = p;
 		enemy = e;
+		combatSimulation = new Combat(p,e);
+		
+//		myPicture = enemy.getEnemyImage();
+//		picLabel = new JLabel(new ImageIcon(myPicture));
+		
+        combatLog = new JTextPane();
+        logScroll = new JScrollPane(combatLog);
 		
 		setTitle("Combat");
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        setLayout(new BorderLayout());
+        setLayout(new GridLayout(1,2));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        enemyHpLabel = new JLabel("Enemy HP: " + enemy.getHp());
+        playerHpLabel = new JLabel("Player HP: " + player.getHp());
+        
+        statusPanel = new JPanel();
+        statusPanel.setLayout(new GridLayout(1,2));
+        statusPanel.add(playerHpLabel);
+        statusPanel.add(enemyHpLabel);
         
         actionPanel = new JPanel();
         actionPanel.setLayout(new GridLayout(1,3));
-        add(actionPanel, BorderLayout.SOUTH);
         
     	for(int i = 0; i < menuButtonNames.length; i++) 
     	{
     		menuButtons[i] = new JButton(menuButtonNames[i]);
     		actionPanel.add(menuButtons[i]);
+    		menuButtons[i].addActionListener(new ButtonListener());
     	}
+       
+        leftPanel = new JPanel();
+        leftPanel.setLayout(new BorderLayout());
+        leftPanel.add(actionPanel, BorderLayout.SOUTH);
+        leftPanel.add(statusPanel, BorderLayout.NORTH);
+        
+        rightPanel = new JPanel();
+        rightPanel.setLayout(new GridLayout(1,1));
+        rightPanel.add(logScroll);
+        
+        add(leftPanel);
+        add(rightPanel);
         
 		setVisible(true);
     	
@@ -80,29 +129,41 @@ public class CombatGUI extends JFrame
 
 	//getters
 	
-	public Combat getCombatSimulation()
-	{
-		return combatSimulation;
-	}
+//	public Combat getCombatSimulation()
+//	{
+//		return combatSimulation;
+//	}
 
 	//setters
 	
-	public void setCombatSimulation(Combat combatSimulation)
-	{
-		this.combatSimulation = combatSimulation;
-	}
+//	public void setCombatSimulation(Combat combatSimulation)
+//	{
+//		this.combatSimulation = combatSimulation;
+//	}
 	
 	//other
 	
 	/**
 	 * main method used to test JUST the Combat GUI.
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) 
+	public static void main(String[] args) throws IOException
 	{
 		Player testPlayer = new Player();
 		Enemy testEnemy = new Enemy();
 		CombatGUI test = new CombatGUI(testPlayer, testEnemy);
+	}
+	
+	private class ButtonListener implements ActionListener 
+	{
+		public void actionPerformed(ActionEvent e) 
+		{
+			combatLog.setText(combatLog.getText() + "You attacked enemy for " + combatSimulation.attackEnemy() + "\n");
+			enemyHpLabel.setText("Enemy HP: " + enemy.getHp());
+			combatLog.setText(combatLog.getText() + "Enemy attacked you for " + combatSimulation.attackPlayer() + "\n");
+			playerHpLabel.setText("Player HP: " + player.getHp());
+		}
 	}
 	
 }

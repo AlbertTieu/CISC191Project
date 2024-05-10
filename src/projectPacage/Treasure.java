@@ -49,10 +49,10 @@ public class Treasure extends Encounter
     /**
     * method to give the player the item in the treasure chest
     */
-    public void givePlayer(Player player)
+    public void givePlayer(Player person)
     {
-    	// trying to take the passed player and add the items from the 
-    	// list of treasures to their inventory as a parameter 
-        player.addToInventory(listOfTreasures);
+    	// trying to use ArrayList's forEach method that for each item in the listOfTreasures, it will add the item
+		// to the player's inventory
+		listOfTreasures.forEach((item)-> person.addToInventory(item));
     }
 }
