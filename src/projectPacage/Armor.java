@@ -21,7 +21,7 @@ package projectPacage;
 public class Armor extends Item
 {
     // Armor has-a hp stat
-    int hp;
+	private int hp;
     
     public Armor()
     {

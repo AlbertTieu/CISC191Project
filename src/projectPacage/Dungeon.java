@@ -23,8 +23,8 @@ public class Dungeon
 	//fields
 
 	//int dungeonSize;
-	Player player;
-	Tile[][] tiles;
+	private Player player;
+	private Tile[][] tiles;
 	
 	//constructors
 	

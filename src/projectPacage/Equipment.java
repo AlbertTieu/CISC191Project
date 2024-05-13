@@ -26,9 +26,9 @@ public class Equipment extends Item
 {
 	// Fields
 	// An equipment has an atk stat;
-     int atkStat;
+	private int atkStat;
     // An equipment has a hp stat;
-     int hpStat;
+	private int hpStat;
     // Constructors
 
     public Equipment()

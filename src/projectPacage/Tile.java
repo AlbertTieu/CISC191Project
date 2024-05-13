@@ -23,11 +23,11 @@ public class Tile
 {
 	//fields
 	
-	Encounter encounter;
-	Player player;
-	boolean explored;
-	boolean playered;
-	int ENCOUNTER_CHANCE = 10;
+	private Encounter encounter;
+	private Player player;
+	private boolean explored;
+	private boolean playered;
+	private int ENCOUNTER_CHANCE = 10;
 	
 	//constructors
 	

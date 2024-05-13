@@ -27,9 +27,9 @@ public class Consumable extends Item
 	    // Fields
 
 		// A Consumable has an atk stat;
-	     int atkStat;
+		private int atkStat;
 	    // A Consumable has a hp stat;
-	     int hpStat;
+		private int hpStat;
 	    // A Consumable has a duration
 	  
 	    

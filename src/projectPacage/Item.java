@@ -23,16 +23,15 @@ public class Item
 {
 	// fields ///
 	// An Item has an atk stat;
-    int atkStat;
+	private int atkStat;
    // An Item has a hp stat;
-    int hpStat;
+	private int hpStat;
 	// An Item has a name;
-    String name;
+	private String name;
    // An Item has a description;
-    String description;
+	private String description;
 
 	//constructors
-	// creates a new item which has a type and a power
 
 	public Item()
 	{

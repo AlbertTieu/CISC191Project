@@ -24,16 +24,21 @@ public class Player
 {
 	//fields
 	
+	// Terms:
+	// Health Points = hp
+	// Attack = atk
+	// Can change these terms during Final Submission if that would be easier to read
+	
 	//A Player has-a HP Level
-	int hp;
+	private int hp;
 	//A Player has-a attack power
-	int atk;
+	private int atk;
 	//A Player has-a Weapon
-	Weapon weapon;
+	private Weapon weapon;
 	//A Player has-a Armor
-	Armor armor;
+	private Armor armor;
 	//A Player has-a inventory
-	ArrayList<Item> inventory; 
+	private ArrayList<Item> inventory; 
 	
 	
 	//constructors

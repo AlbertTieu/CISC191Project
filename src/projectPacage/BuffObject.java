@@ -23,11 +23,11 @@ public class BuffObject extends Item
 {
 	 
 	// A BuffObject has-an atk stat;
-    int atkStat;
+	private int atkStat;
     // A BuffObject has-a hpStat
-    int hpStat;
-    // A BuffObject has-a duration
-    int duration;
+	private int hpStat;
+	// A BuffObject has-a duration
+	private int duration;
     
     // Constructors
     /**

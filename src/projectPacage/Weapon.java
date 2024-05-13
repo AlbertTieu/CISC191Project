@@ -20,7 +20,7 @@ package projectPacage;
 public class Weapon extends Item
 {
     // A Weapon has-a attack stat
-    int atk;
+	private int atk;
     
     public Weapon()
     {
