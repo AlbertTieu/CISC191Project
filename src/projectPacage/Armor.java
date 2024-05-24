@@ -20,19 +20,10 @@ package projectPacage;
 //Armor is-an Item
 public class Armor extends Item
 {
-    // Armor has-a hp stat
-	private int hp;
-    
-    public Armor()
+	
+    public Armor(String newName, String newDescription, int newHealthPoints)
     {
-    	hp = 0;
+    	super(newName, newDescription, 0, newHealthPoints);
     }
     
-    /**
-    * Constructor to instantiate a Weapon Object
-    */ 
-    public Armor(int newHP)
-    {
-        hp = newHP;
-    }
 }

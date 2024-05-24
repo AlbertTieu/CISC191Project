@@ -26,6 +26,7 @@ public class MenuGUI extends JFrame
 {
 	//fields
 	
+	private JButton playButton;
 	
 	
 	//constructors

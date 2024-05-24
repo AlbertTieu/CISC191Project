@@ -86,6 +86,7 @@ public class Dungeon
 	
 	//other
 
+	//for whatever reason this generateTiles() method returns a 2D tile array with null values
 	/**
 	 * generate a basic set of Dungeon Tiles (10x10)
 	 * @return	the set of Tiles
@@ -108,6 +109,7 @@ public class Dungeon
 		return generatedTiles;
 	}
 	
+	//for whatever reason this generateTiles(int dungeonSize) method also returns a 2D tile array with null values
 	/**
 	 * generate a set of Dungeon Tiles given a certain number
 	 * @param dungeonSize	the size of the dungeon

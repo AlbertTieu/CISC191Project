@@ -24,7 +24,7 @@ import javax.imageio.ImageIO;
  * This class is designed to be an enemy for the player to fight
  * in combat scenarios.
  */
-public class Enemy
+public class Enemy extends Actor
 {
 	//fields
 
@@ -49,53 +49,13 @@ public class Enemy
 	
 	public Enemy(Enemy newEnemy)
 	{
-		hp = newEnemy.getHp();
-		atk = newEnemy.getAtk();
+		hp = newEnemy.getHealthPoints();
+		atk = newEnemy.getAttackPoints();
 	}
-	
-	//methods
-	
-	//setters
-	
-	/*
-	 * setter for the Enemy hp value
-	 */
-	public void setHp(int newHp) 
-	{
-		hp = newHp;
-	}
-	
-	/*
-	 * setter for the Enemy atk value
-	 */
-	public void setAtk(int newAtk) 
-	{
-		atk = newAtk;
-	}
-	
-	//getters
-	
-	/*
-	 * getter for the Enemy hp value
-	 */
-	public int getHp() 
-	{
-		return hp;
-	}
-	
-	/*
-	 * getter for the Enemy atk value
-	 */
-	public int getAtk() 
-	{
-		return atk;
-	}
-	
+
 	public BufferedImage getEnemyImage()
 	{
 		return enemyImage;
 	}
-		
-	//other
-	
+
 }

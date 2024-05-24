@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * This class is designed to be the character that the player
  * controls. It stores all the values of this character.
  */
-public class Player 
+public class Player extends Actor
 {
 	//fields
 	
@@ -30,9 +30,11 @@ public class Player
 	// Can change these terms during Final Submission if that would be easier to read
 	
 	//A Player has-a HP Level
-	private int hp;
+	private int healthPoints;
 	//A Player has-a attack power
-	private int atk;
+	private int attackPoints;
+	//A Player has-a name
+	private String name;
 	//A Player has-a Weapon
 	private Weapon weapon;
 	//A Player has-a Armor
@@ -44,16 +46,21 @@ public class Player
 	//constructors
 	public Player()
 	{
-		hp = 10;
-		atk = 10;
-		weapon = new Weapon();
-		armor = new Armor();
+		super()
+		healthPoints = 10;
+		attackPoints = 10;
+		name = "Player";
+		weapon = new Weapon(null, null, attackPoints);
+		armor = new Armor(null, null, attackPoints);
 	}
 
 	public Player(Player newPlayer)
 	{
-		hp = newPlayer.getHp();
-		atk = newPlayer.getAtk();
+		healthPoints = newPlayer.getHealthPoints();
+		attackPoints = newPlayer.getAttackPoints();
+		name = "Player";
+		weapon = new Weapon(null, null, attackPoints);
+		armor = new Armor(null, null, attackPoints);
 		inventory = newPlayer.getInventory();
 	}
 	
@@ -61,39 +68,44 @@ public class Player
 		
 	//setters
 	
+	@Override
 	/*
 	 * setter for the Player's hp value
 	 */
-	public void setHp(int newHp) 
+	public void setHealthPoints(int newHealthPoints) 
 	{
-		hp = newHp + armor.getHpStat();
+		healthPoints = newHealthPoints + armor.getHealthPoints();
 	}
 	
 	/*
 	 * setter for t he Player's atk value
 	 */
-	public void setAtk(int newAtk) 
+	public void setAttackPoints(int newAttackPoints) 
 	{
-		atk = newAtk + weapon.getHpStat();
+		attackPoints = newAttackPoints + weapon.getHealthPoints();
 	}
+	
+	/**
+     * Method to allow the user to set the player's name
+     * @param newName the new Name of the player
+     **/
+     public void setAttackPoints(String newName)
+     {
+         name = newName;
+     }
 	
 	//getters
 	
-	/*
-	 * getter for the Player's hp value
-	 */
-	public int getHp() 
-	{
-		return hp;
-	}
-	
-	/*
-	 * getter for the Player's atk value
-	 */
-	public int getAtk() 
-	{
-		return atk;
-	}
+	/**
+     * Method to allow the user to get the name of a player
+     * @return name
+     **/
+     public String getName()
+     {
+         return name;
+     }
+     
+
 	
 	public ArrayList<Item> getInventory() 
 	{

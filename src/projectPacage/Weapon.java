@@ -19,19 +19,10 @@ package projectPacage;
 //A Weapon is-an Item
 public class Weapon extends Item
 {
-    // A Weapon has-a attack stat
-	private int atk;
-    
-    public Weapon()
+	public Weapon(String newName, String newDescription, int newAttackPoints)
     {
-    	atk = 0;
+    	super(newName, newDescription, newAttackPoints, 0);
     }
+
     
-    /**
-    * Constructor to instantiate a Weapon Objject
-    */ 
-    public Weapon(int newAtk)
-    {
-       setAtkStat(newAtk);
-    }
 }

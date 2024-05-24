@@ -94,8 +94,8 @@ public class Combat
 	 */
 	public int attackEnemy()
 	{
-		int damageDealt = player.getAtk();
-		enemy.setHp(enemy.getHp() - damageDealt);
+		int damageDealt = player.getAttackPoints();
+		enemy.setHealthPoints(enemy.getHealthPoints() - damageDealt);
 		return damageDealt;
 	}
 
@@ -104,8 +104,8 @@ public class Combat
 	 */
 	public int attackPlayer() 
 	{
-		int damageDealt = enemy.getAtk();
-		player.setHp(player.getHp() - damageDealt);
+		int damageDealt = enemy.getAttackPoints();
+		player.setHealthPoints(player.getHealthPoints() - damageDealt);
 		return damageDealt;
 	}
 	

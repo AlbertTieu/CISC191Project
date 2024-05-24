@@ -1,6 +1,7 @@
 package packageGUI;
 
 import java.awt.*;
+
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -90,8 +91,8 @@ public class CombatGUI extends JFrame
         setLayout(new GridLayout(1,2));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        enemyHpLabel = new JLabel("Enemy HP: " + enemy.getHp());
-        playerHpLabel = new JLabel("Player HP: " + player.getHp());
+        enemyHpLabel = new JLabel("Enemy HP: " + enemy.getHealthPoints());
+        playerHpLabel = new JLabel("Player HP: " + player.getHealthPoints());
         
         statusPanel = new JPanel();
         statusPanel.setLayout(new GridLayout(1,2));
@@ -160,9 +161,9 @@ public class CombatGUI extends JFrame
 		public void actionPerformed(ActionEvent e) 
 		{
 			combatLog.setText(combatLog.getText() + "You attacked enemy for " + combatSimulation.attackEnemy() + "\n");
-			enemyHpLabel.setText("Enemy HP: " + enemy.getHp());
+			enemyHpLabel.setText("Enemy HP: " + enemy.getHealthPoints());
 			combatLog.setText(combatLog.getText() + "Enemy attacked you for " + combatSimulation.attackPlayer() + "\n");
-			playerHpLabel.setText("Player HP: " + player.getHp());
+			playerHpLabel.setText("Player HP: " + player.getHealthPoints());
 		}
 	}
 	

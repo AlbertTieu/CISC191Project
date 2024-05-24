@@ -21,11 +21,12 @@ import java.util.ArrayList;
  */
 public class Item
 {
+	// maybe make abstract because we're not creating an itme object
 	// fields ///
 	// An Item has an atk stat;
-	private int atkStat;
+	private int attackPoints;
    // An Item has a hp stat;
-	private int hpStat;
+	private int healthPoints;
 	// An Item has a name;
 	private String name;
    // An Item has a description;
@@ -33,12 +34,20 @@ public class Item
 
 	//constructors
 
-	public Item()
+	public Item(String newName, String newDescription)
 	{
-		atkStat = 0;
-		hpStat = 0;
-		name = null;
-		description = null;
+		attackPoints = 0;
+		healthPoints = 0;
+		name = newName;
+		description = newDescription;
+	}
+	
+	public Item(String newName, String newDescription, int newAttackPoints, int newHealthPoints)
+	{
+		attackPoints = newAttackPoints;
+		healthPoints = newHealthPoints;
+		name = newName;
+		description = newDescription;
 	}
 
 
@@ -46,16 +55,16 @@ public class Item
 	/**
      * Method to allow the user to get the atk stat of a item 
      **/
-     public int getAtkStat()
+     public int getAttackPoints()
      {
-         return atkStat;
+         return attackPoints;
      }
  	/** 
  	* retrieves the type of the item
  	**/
- 	public int getHpStat()
+ 	public int getHealthPoints()
  	{
- 		return hpStat;
+ 		return healthPoints;
  	}
 
 	/**
@@ -78,17 +87,17 @@ public class Item
  	/**
  	*	* retrieves the power of the item
  	**/
- 	public void setAtkStat(int newAtk)
+ 	public void setAttackPoints(int newAttackPoints)
  	{
-         atkStat = newAtk;
+         attackPoints = newAttackPoints;
  	}
  	
  	/**
  	*	* sets the power of the item
  	**/
- 	public void setHPStat(int newHP)
+ 	public void setHealthPoints(int newHealthPoints)
  	{
- 		hpStat = newHP; 
+ 		healthPoints = newHealthPoints; 
 		}
 
 	/**
@@ -107,5 +116,9 @@ public class Item
         description = newDescription;
  	}
  	
+ 	public String toString()
+ 	{
+ 		return name + " , " + description + " , " + attackPoints + " , " + healthPoints;
+ 	}
  	 
 }
