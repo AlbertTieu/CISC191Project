@@ -22,17 +22,14 @@ import java.util.ArrayList;
  */
 public class Player extends Actor
 {
-	//fields
 	
-	// Terms:
-	// Health Points = hp
-	// Attack = atk
-	// Can change these terms during Final Submission if that would be easier to read
+	// A Player has healthPoints
+	// Setting healthPoints to the getHealthPoints method on the current player object, which is inherited from Actor, which should thereby access Actor's healthPoints variable
+	private int healthPoints = this.getHealthPoints();
 	
-	//A Player has-a HP Level
-	private int healthPoints;
-	//A Player has-a attack power
-	private int attackPoints;
+	//A Player has attack points
+	// Setting attackPoints to the getAttackPoints method on the current player object, which is inherited from Actor, which should thereby access Actor's attackPoints variable
+	private int attackPoints = this.getAttackPoints();
 	//A Player has-a name
 	private String name;
 	//A Player has-a Weapon
@@ -46,23 +43,26 @@ public class Player extends Actor
 	//constructors
 	public Player()
 	{
-		super()
-		healthPoints = 10;
-		attackPoints = 10;
+		super();
+		setHealthPoints(10);
+		setAttackPoints(10);
 		name = "Player";
-		weapon = new Weapon(null, null, attackPoints);
-		armor = new Armor(null, null, attackPoints);
+		weapon = new Weapon("test", "test", 0);
+		armor = new Armor("test", "test", 0);
+		inventory = new ArrayList<Item>();
+	}
+	
+	public Player(int newHealthPoints, int newAttackPoints)
+	{
+		super(newHealthPoints, newAttackPoints);
+		name = "Player";
+		weapon = new Weapon("test", "test", 0);
+		armor = new Armor("test", "test", 0);
+		inventory = new ArrayList<Item>();
+
+
 	}
 
-	public Player(Player newPlayer)
-	{
-		healthPoints = newPlayer.getHealthPoints();
-		attackPoints = newPlayer.getAttackPoints();
-		name = "Player";
-		weapon = new Weapon(null, null, attackPoints);
-		armor = new Armor(null, null, attackPoints);
-		inventory = newPlayer.getInventory();
-	}
 	
 	//methods
 		
@@ -74,22 +74,24 @@ public class Player extends Actor
 	 */
 	public void setHealthPoints(int newHealthPoints) 
 	{
-		healthPoints = newHealthPoints + armor.getHealthPoints();
+		healthPoints = newHealthPoints; //+ armor.getHealthPoints();
 	}
 	
+	@Override
 	/*
-	 * setter for t he Player's atk value
+	 * setter for the Player's atk value
 	 */
 	public void setAttackPoints(int newAttackPoints) 
 	{
-		attackPoints = newAttackPoints + weapon.getHealthPoints();
+		attackPoints = newAttackPoints; // + weapon.getAttackPoints();
 	}
+	
 	
 	/**
      * Method to allow the user to set the player's name
      * @param newName the new Name of the player
      **/
-     public void setAttackPoints(String newName)
+     public void setName(String newName)
      {
          name = newName;
      }
@@ -105,6 +107,10 @@ public class Player extends Actor
          return name;
      }
      
+     public Armor getArmor()
+     {
+    	 return armor;
+     }
 
 	
 	public ArrayList<Item> getInventory() 
@@ -116,17 +122,19 @@ public class Player extends Actor
 	
 	public void addToInventory(Item item) 
 	{
+		
 		inventory.add(item);
 	}
 	
 	public void equipWeapon(Weapon newWeapon)
     {   
-		addToInventory(weapon);
 		weapon = newWeapon;
+		setAttackPoints(weapon.getAttackPoints() + getAttackPoints());
+
     }
 	public void equipArmor(Armor newArmor)
 	{
-		addToInventory(armor);
 		armor = newArmor;
+		setHealthPoints(armor.getHealthPoints() + getHealthPoints());
 	}
 }

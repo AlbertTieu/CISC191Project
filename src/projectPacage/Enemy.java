@@ -28,34 +28,64 @@ public class Enemy extends Actor
 {
 	//fields
 
-	int hp;
-	int atk;
+	// An Enemy has-a image
 	private BufferedImage enemyImage;
+	
+	// for variables such as healthPoints or attackPoints, 
+	// i could call the getter method which references the getHealthPoints method from Actor
+	// or i could make my own variable
+	
+	// An enemy has health points 
+	// Setting healthPoints to the getHealthPoints method on the current enemy object, which is inherited from Actor, which should thereby access Actor's healthPoints variable
+	private int healthPoints = this.getHealthPoints();
+	
+	// An enemy has attack points
+	// Setting attackPoints to the getAttackPoints method on the current enemy object, which is inherited from Actor, which should thereby access Actor's attackPoints variable
+	private int attackPoints = this.getAttackPoints();
+
 	
 	//constructors
 	
 	public Enemy() throws IOException 
 	{
-		hp = 0;
-		atk = 0;
+		super();
 		enemyImage = null;
 	}
 	
-	public Enemy(int newHp, int newAtk) 
+	public Enemy(int newHealthPoints, int newAttackPoints) 
 	{
-		hp = newHp;
-		atk = newAtk;
+		super(newHealthPoints, newAttackPoints);
 	}
 	
 	public Enemy(Enemy newEnemy)
 	{
-		hp = newEnemy.getHealthPoints();
-		atk = newEnemy.getAttackPoints();
+		super(newEnemy);
 	}
 
+	 //// Methods ////
 	public BufferedImage getEnemyImage()
 	{
 		return enemyImage;
+	}
+	
+	@Override
+	/**
+	 * Method to set the health points of an actor
+	 * @param newHealthPoints the new health points of an actor
+	 */
+	public void setHealthPoints(int newHealthPoints)
+	{
+		healthPoints = newHealthPoints;
+	}
+	
+	@Override
+	/**
+	 * Method to set the attack points of an actor
+	 * @param newAttackPoints the new attack points of an actor
+	 */
+	public void setAttackPoints(int newAttackPoints)
+	{
+		attackPoints = newAttackPoints;
 	}
 
 }

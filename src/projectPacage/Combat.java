@@ -1,5 +1,7 @@
 package projectPacage;
 
+import packageGUI.NewDungeonGUI;
+
 /**
  * Lead Author(s):
  * @author Albert Tieu
@@ -18,6 +20,7 @@ package projectPacage;
  * This class is designed to be a scenario where the player is 
  * engaged in combat with an enemy.
  */
+
 public class Combat
 {
 	//fields
@@ -30,7 +33,8 @@ public class Combat
 	
 	public Combat()
 	{
-		
+		enemy = new Enemy(5,5);
+		getPlayer();
 	}
 	
 	public Combat(Player thePlayer, Enemy theEnemy)
@@ -51,6 +55,8 @@ public class Combat
 	
 	public Player getPlayer()
 	{
+		NewDungeonGUI newDungeonGUI = new NewDungeonGUI();
+		player = newDungeonGUI.getPlayer();
 		return player;
 	}
 	
@@ -73,40 +79,20 @@ public class Combat
 	
 	//other
 	
-	
-	public void skills() 
+
+	public int healthAfterBattle()
 	{
-		
+		// (enemy's attack - player's attack) + player's hp + armor's hp
+		// all of this is set equal to the player's hp
+		player.setHealthPoints(enemyAttackAfterBlocked()+player.getHealthPoints()+player.getArmor().getHealthPoints());
+		return player.getHealthPoints();
 	}
 	
-	public void item() 
+	public int enemyAttackAfterBlocked()
 	{
-		
-	}
-	
-	public void use() 
-	{
-		
-	}
-	
-	/**
-	 * method for when enemy is attacked
-	 */
-	public int attackEnemy()
-	{
-		int damageDealt = player.getAttackPoints();
-		enemy.setHealthPoints(enemy.getHealthPoints() - damageDealt);
-		return damageDealt;
+		enemy.setAttackPoints(enemy.getAttackPoints()-player.getAttackPoints());
+		return enemy.getAttackPoints();
 	}
 
-	/**
-	 * method for when player is attacked
-	 */
-	public int attackPlayer() 
-	{
-		int damageDealt = enemy.getAttackPoints();
-		player.setHealthPoints(player.getHealthPoints() - damageDealt);
-		return damageDealt;
-	}
 	
 }

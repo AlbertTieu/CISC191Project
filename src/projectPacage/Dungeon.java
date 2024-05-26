@@ -1,5 +1,6 @@
 package projectPacage;
 
+
 /**
  * Lead Author(s):
  * @author Albert Tieu
@@ -30,7 +31,8 @@ public class Dungeon
 	
 	public Dungeon() 
 	{
-		player = null;
+		player = new Player();
+		player.setName("steve :D");
 		tiles = generateTiles();
 		
 		for (Tile[] tileSet : tiles) 
@@ -70,6 +72,11 @@ public class Dungeon
 	public Player getPlayer()
 	{
 		return player;
+	}
+	
+	public Dungeon getDungeon()
+	{
+		return this;
 	}
 	
 	//setters

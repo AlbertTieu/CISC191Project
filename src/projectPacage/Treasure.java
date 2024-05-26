@@ -21,19 +21,20 @@ import java.util.ArrayList;
  * This class is designed to be an encounter in which the player 
  * recieves an item.
  */
-public class Treasure extends Encounter
+public class Treasure
 {
 	//fields
 	// A treasure has-a list of treasures
 	// Created an ArrayList for the treasure object
 	// so that we can store new items in there
-	ArrayList<Item> listOfTreasures = new ArrayList<>();
+	ArrayList<Item> listOfTreasures;
 	
 	//constructors
     
     // a treasure object should have an item in it
 	public Treasure()
     {
+		listOfTreasures = new ArrayList<>();
     }
 	
 	//methods 

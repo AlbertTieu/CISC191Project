@@ -41,6 +41,13 @@ public abstract class Actor
 		healthPoints = newActor.getHealthPoints();
 		attackPoints = newActor.getAttackPoints();
 	}
+	
+	public Actor(int newHealthPoints, int newAttackPoints)
+	{
+		healthPoints = newHealthPoints;
+		attackPoints = newAttackPoints;
+	}
+	
 	/**
 	 * Method to get the health points of an actor
 	 * @return health points
@@ -63,17 +70,16 @@ public abstract class Actor
 	 * Method to set the health points of an actor
 	 * @param newHealthPoints the new health points of an actor
 	 */
-	public void setHealthPoints(int newHealthPoints)
-	{
-		healthPoints = newHealthPoints;
-	}
+	public abstract void setHealthPoints(int newHealthPoints);
 	
 	/**
 	 * Method to set the attack points of an actor
 	 * @param newAttackPoints the new attack points of an actor
 	 */
-	public void setAttackPoints(int newAttackPoints)
-	{
-		attackPoints = newAttackPoints;
-	}
+	public abstract void setAttackPoints(int newAttackPoints);
+	
+	public String toString()
+ 	{
+ 		return attackPoints + " , " + healthPoints;
+ 	}
 }
